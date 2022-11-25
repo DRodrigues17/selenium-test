@@ -9,7 +9,7 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
-public class LocalizarLojasTest {
+public class PesquisasMultiplasLojasTest {
 
     static WebDriver driver;
     static LocalizaLojaPage localizaLojaPage;
@@ -24,13 +24,20 @@ public class LocalizarLojasTest {
     }
 
     @Test
-    public void devePesquisarPorCep() throws Exception {
+    public void devePesquisarPorEnderecoMaisDeUmaVez() throws Exception {
         localizaLojaPage.preencherCampoBusca("rua augusta");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         assertEquals(localizaLojaPage.validarMensagem(), "192 Americanas perto de você");
         String endereco = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[3]/div[1]/div[1]/div[1]/h3[1]")).getText();
         System.out.println("foi buscado por " + endereco +" e achamos o total de " + localizaLojaPage.validarMensagem());
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        localizaLojaPage.clicarEmBotaoDeTroca();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        localizaLojaPage.preencherCampoDoPopup("martello");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        assertEquals(localizaLojaPage.validarMensagem(), "1 Americanas perto de você");
+        String cep = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[3]/div[1]/div[1]/div[1]/h3[1]")).getText();
+        System.out.println("foi buscado por " + cep +" e achamos o total de " + localizaLojaPage.validarMensagem());
     }
-
-
 }

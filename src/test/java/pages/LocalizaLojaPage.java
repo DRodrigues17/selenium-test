@@ -17,7 +17,18 @@ public class LocalizaLojaPage {
         busca.sendKeys(Keys.ENTER);
     }
 
-    public String vaidarMensagem(){
+    public String validarMensagem(){
         return driver.findElement(By.xpath("//body/div[@id='root']/div[4]/div[2]/div[1]/div[1]/span[1]")).getText();
+    }
+
+    public void clicarEmBotaoDeTroca(){
+        WebElement botao = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[3]/div[1]/div[1]/div[2]/span[1]"));
+        botao.click();
+    }
+
+    public void preencherCampoDoPopup(String endereco){
+        WebElement popup = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/div[1]/input[1]"));
+        popup.sendKeys(endereco);
+        popup.sendKeys(Keys.ENTER);
     }
 }
