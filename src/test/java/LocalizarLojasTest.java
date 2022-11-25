@@ -27,12 +27,10 @@ public class LocalizarLojasTest {
     @Test
     public void devePesquisarPorCep() throws Exception {
         localizaLojaPage.preencherCampoBusca("rua augusta");
-        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         assertEquals(localizaLojaPage.vaidarMensagem(), "192 Americanas perto de você");
         String endereco = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[3]/div[1]/div[1]/div[1]/h3[1]")).getText();
         System.out.println("foi buscado por " + endereco +" e achamos o total de " + localizaLojaPage.vaidarMensagem());
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.navigate().back();
     }
 
     //TODO
