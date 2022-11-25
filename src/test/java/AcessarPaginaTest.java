@@ -27,10 +27,7 @@ public class AcessarPaginaTest {
         buscaPages.PreencherCampoBusca();
         buscaPages.ClicarEmBuscar();
         assertEquals(buscaPages.vaidarMensagem(), "Sua busca por: \"asdfrwqw\" não encontrou nenhum resultado");
+        System.out.println(buscaPages.vaidarMensagem());
     }
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-        // driver.quit();
-    }
 }
