@@ -1,6 +1,10 @@
 # selenium-test
 Repositório contendo minha primeira experiencia com testes automatizados utilizando selenium
 
+não se esqueça de baixar o selenium e o chrome driver para conseguir executar os testes, o selenium é uma biblioteca que deve ser adcionada ao projeto (não é possivel via maven) e o chrome driver deve ser baixado na mesma versão do seu navegador. Segue abaixo o link de onde baixar ambos:
+- https://www.selenium.dev/downloads/
+- https://chromedriver.chromium.org/home
+
 
 Na pasta src/test/java você verá todos os arquivos correspondentes aos testes. Existe uma subpasta chamada pages, na qual estão os "objetos" por assim dizer,
 as classes Page nesse projeto são classes que eu utilizei para criar os métodos que navegam na página, veja o nome deles e entenderá o que estou falando:
